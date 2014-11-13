@@ -11,8 +11,7 @@ class PanImage extends JPanel {
     Image ariSprite[][] = new Image[4][2];
     String UploadName;
     Graphics g;
-    int nFrame;
-    int nCycle;
+    int nFrame = 0;
 
     public PanImage() {
         try {
@@ -29,16 +28,14 @@ class PanImage extends JPanel {
         }
     }
 
-    public void SetVar(int _nFrame, int _nCycle) {
-        //To Reset
-        nFrame = _nFrame;
-        nCycle = _nCycle;
-
-    }
-
-    public void SpriteAnim(int nX, int nY) {
+    public void SpriteAnim(int nX, int nY, int nCycle) {
         try {
             g.drawImage(ariSprite[nFrame][nCycle], nX, nY, this);
+            if (nFrame == 3) {
+                nFrame += 1;
+            } else {
+                nFrame = 1;
+            }
         } catch (Exception ex) {
         }
     }
