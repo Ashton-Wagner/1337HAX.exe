@@ -9,21 +9,23 @@ import javax.swing.*;
 class PanImage extends JPanel {
 
     Image ariSprite[][] = new Image[4][2];
-    String UploadName;
+    String sUploadName;
     Graphics g;
     int nFrame = 0;
 
     public PanImage() {
         try {
-            for (int j = 0; j < 3; j++) {
+            for (int j = 0; j < 1; j++) {
                 if (j == 0) {
-                    UploadName = "Doge_";
+                    sUploadName = "Lick_";
+                }
+                if (j == 1) {
+                    sUploadName = "Doge_";
                 }
                 for (int i = 0; i < 3; i++) {
-                    ariSprite[i][j] = ImageIO.read(new File(UploadName + i + ".png"));
+                    ariSprite[i][j] = ImageIO.read(new File(sUploadName + (i + 1) + ".png"));
                 }
             }
-
         } catch (IOException e) {
         }
     }
@@ -32,9 +34,9 @@ class PanImage extends JPanel {
         try {
             g.drawImage(ariSprite[nFrame][nCycle], nX, nY, this);
             if (nFrame == 3) {
-                nFrame += 1;
+                nFrame = 0;
             } else {
-                nFrame = 1;
+                nFrame += 1;
             }
         } catch (Exception ex) {
         }
