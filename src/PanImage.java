@@ -21,6 +21,10 @@ class PanImage extends JPanel {
                 for (int i = 0; i < 3; i++) {
                     ariSprite[i][j] = ImageIO.read(new File(sUploadName + (i + 1) + ".png"));
                 } 
+                //TEST//
+                g.drawImage(ariSprite[0][9], 10, 10, this);
+                //TEST//
+                
             }
         } catch (IOException e) {
         }
