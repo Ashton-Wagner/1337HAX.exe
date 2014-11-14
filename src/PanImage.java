@@ -31,6 +31,7 @@ class PanImage extends JPanel {
     }
 
     public void SpriteAnim(int nX, int nY, int nCycle) {
+        //call this, thread.sleep(time), repaint to use
         try {
             g.drawImage(ariSprite[nFrame][nCycle], nX, nY, this);
             if (nFrame == 3) {
